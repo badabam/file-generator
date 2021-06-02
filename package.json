@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "build": "pkg -t macos -o bin/file-generator file-generator6",
+    "build": "echo '#!/usr/bin/env node' > bin/file-generator && cat file-generator6.js >> bin/file-generator && chmod +x bin/file-generator",
+    "pack": "pkg --out-path packed --compress Brotli file-generator6.js",
     "copy": "cp -f bin/file-generator /usr/local/bin/file-generator",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
